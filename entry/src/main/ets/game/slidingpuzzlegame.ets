@@ -35,7 +35,7 @@ export struct SlidingPuzzleCanvas {
           .fontWeight(FontWeight.Medium)
           .textShadow({
             radius: 4,
-            color: '#000',
+            color: '#000'
           })
 
         Button('New Game')

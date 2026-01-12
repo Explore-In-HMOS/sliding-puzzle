@@ -42,7 +42,7 @@ entry/src/main/ets/
 │       types.ts
 ├───pages
 │       Index.ets
-└─── 
+└───
 ```
 
 
