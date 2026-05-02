@@ -12,7 +12,10 @@ export class PuzzleController {
   }
 
   handleTileTap(puzzle: PuzzleState, tapX: number, tapY: number): PuzzleState | null {
-    const gridPosition = this.screenToGrid(tapX, tapY);
+    if (!this.isValidPuzzle(puzzle)) {
+      return null;
+    }
+    const gridPosition = this.screenToGrid(puzzle, tapX, tapY);
     if (!gridPosition) {
       return null;
     }
@@ -26,6 +29,9 @@ export class PuzzleController {
   }
 
   handleSwipe(puzzle: PuzzleState, direction: SwipeDirection): PuzzleState | null {
+    if (!this.isValidPuzzle(puzzle)) {
+      return null;
+    }
     const newPuzzle = moveTile(puzzle, direction);
     if (newPuzzle) {
       this.onGameUpdate(newPuzzle);
@@ -35,6 +41,9 @@ export class PuzzleController {
   }
 
   handleGesture(puzzle: PuzzleState, event: GestureEvent): PuzzleState | null {
+    if (!this.isValidPuzzle(puzzle)) {
+      return null;
+    }
     const deltaX = event.offsetX;
     const deltaY = event.offsetY;
     let direction: SwipeDirection;
@@ -48,14 +57,18 @@ export class PuzzleController {
     return this.handleSwipe(puzzle, direction);
   }
 
-  private screenToGrid(screenX: number, screenY: number): Point | null {
+  private screenToGrid(puzzle: PuzzleState, screenX: number, screenY: number): Point | null {
     const gridX = Math.floor((screenX - PUZZLE_CONFIG.TILE_PADDING) / (this.tileSize + PUZZLE_CONFIG.TILE_PADDING));
     const gridY = Math.floor((screenY - PUZZLE_CONFIG.TILE_PADDING) / (this.tileSize + PUZZLE_CONFIG.TILE_PADDING));
 
-    if (gridX >= 0 && gridX < PUZZLE_CONFIG.PUZZLE_SIZE &&
-      gridY >= 0 && gridY < PUZZLE_CONFIG.PUZZLE_SIZE) {
+    if (gridX >= 0 && gridX < puzzle.size &&
+      gridY >= 0 && gridY < puzzle.size) {
       return { x: gridX, y: gridY };
     }
     return null;
+  }
+
+  private isValidPuzzle(puzzle: PuzzleState): boolean {
+    return puzzle !== undefined && puzzle.tiles !== undefined && puzzle.size > 0;
   }
 }

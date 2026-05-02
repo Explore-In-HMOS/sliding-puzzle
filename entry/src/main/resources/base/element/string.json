@@ -2,15 +2,15 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "module description"
+      "value": "Wearable sliding puzzle gameplay module"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "description"
+      "value": "Launches the Sliding Puzzle watch experience"
     },
     {
       "name": "EntryAbility_label",
-      "value": "label"
+      "value": "Sliding Puzzle"
     }
   ]
 }

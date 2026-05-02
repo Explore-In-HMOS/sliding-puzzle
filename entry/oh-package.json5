@@ -1,10 +1,9 @@
 {
   "name": "entry",
   "version": "1.0.0",
-  "description": "Please describe the basic information.",
+  "description": "Entry module for Sliding Puzzle wearable app",
   "main": "",
   "author": "",
   "license": "",
   "dependencies": {}
 }
-

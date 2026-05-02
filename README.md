@@ -1,11 +1,10 @@
-> **Note:** To access all shared projects, get information about environment setup, and view other guides, please visit [Explore-In-HMOS-Wearable Index](https://github.com/Explore-In-HMOS-Wearable/hmos-index).
-
 # Sliding Puzzle
 
-In the sliding puzzle game, players manipulate numbered tiles on a grid by sliding them into an empty space. The goal is
-to arrange all tiles in sequential order from 1 to the highest number. Players can only move tiles that are adjacent to
-the empty space, sliding them horizontally or vertically. The game is won when all tiles are positioned in their correct
-numerical sequence, with the empty space in the bottom-right corner.
+Sliding Puzzle is a HarmonyOS Next wearable puzzle app built for round watch screens.
+
+The app ships with a multi-page flow (Home, Game, Stats, Settings), three playable modes, session resume, run history,
+best-record tracking, assist actions (Hint/Peek), and wearable-native feedback such as haptics and optional
+shake-to-reshuffle.
 
 # Preview
 
@@ -16,14 +15,17 @@ numerical sequence, with the empty space in the bottom-right corner.
 
 # Use Cases
 
-Quick entertainment during free time with its simple yet addictive gameplay mechanics that keep players engaged.
+- Quick daily puzzle sessions on a watch with mode-based challenge variety.
+- Resume an unfinished run after reopening the app.
+- Track improvement with mode bests, completion streak, and recent history.
+- Enable/disable wearable behaviors (haptics, shake reshuffle, assist tools) from Settings.
 
 # Tech Stack
 
 - **Languages**: ArkTS, ArkUI
-- **Frameworks**: HarmonyOS SDK 5.0.2(14)
-- **Tools**: DevEco Studio Vers 5.1.0.820
-- **Libraries**: @kit.ArkUI
+- **Frameworks**: HarmonyOS SDK 6.0.0(20)
+- **Tools**: DevEco Studio (HarmonyOS 6.0 line)
+- **Libraries**: @kit.ArkUI, @kit.ArkData, @kit.SensorServiceKit, @kit.AbilityKit
 
 # Directory Structure
 
@@ -33,18 +35,35 @@ entry/src/main/ets/
 │       EntryAbility.ets
 ├───entrybackupability
 │       EntryBackupAbility.ets
+├───components
+│       AppButton.ets
+│       AppCard.ets
+│       WearableScaffold.ets
 ├───game
-│       constants.ts
 │       game.ts
+│       constants.ts
 │       puzzlecontroller.ets
 │       puzzlerenderer.ets
 │       slidingpuzzlegame.ets
 │       types.ts
+├───models
+│       GameModels.ts
+│       Routes.ts
 ├───pages
+│       Game.ets
+│       Home.ets
 │       Index.ets
-└───
+│       Settings.ets
+│       Stats.ets
+├───services
+│       GameSessionService.ets
+│       HapticsService.ets
+│       MotionService.ets
+│       PreferencesService.ets
+│       StatsService.ets
+├───theme
+│       Tokens.ets
 ```
-
 
 # Constraints and Restrictions
 
@@ -54,5 +73,5 @@ entry/src/main/ets/
 
 # LICENSE
 
-Snake is distributed under the terms of the MIT License.
+Sliding Puzzle is distributed under the terms of the MIT License.
 See the [LICENSE](/LICENSE) for more information.
