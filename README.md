@@ -2,7 +2,7 @@
 
 # Sliding Puzzle
 
-Sliding Puzzle is a HarmonyOS Next wearable puzzle app built for round watch screens.
+Sliding Puzzle is a HarmonyOS wearable puzzle app built for round watch screens.
 
 The app ships with a multi-page flow (Home, Game, Stats, Settings), three playable modes, session resume, run history,
 best-record tracking, assist actions (Hint/Peek), and wearable-native feedback such as haptics and optional
